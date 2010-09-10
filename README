@@ -1,0 +1,24 @@
+This is a collection of wminput python plugins that allow using a Wiimote
+as an event, mouse, and joystick driver.
+
+http://abstrakraft.org/cwiid/wiki/wminput
+
+race.py:
+Used for a racing game I wrote.
+There are six built in "commands" that can map to buttons, which are placed
+in a config file. The config line looks like "Plugin.race.brake     = KEY_S".
+
+brake, accel, acc_right, acc_left, left, right
+
+The script prints each command as it's executed, so running wminput on the command
+line will display which command it's sending.
+
+
+shake.py:
+This script adds a single new command that maps to any key: Plugin.shake.Shake
+If the wiimote is shaken harder than "SHAKE_THRESHOLD" (run the plugin to test
+the sensitivity), it will simulate the button press (I used it for KEY_NEXTSONG).
+
+Since the Wiimote sends data constantly, after the button press is sent the
+action is "disabled" for RELEASE_DELAY time to allow for the user to stop shaking
+the Wiimote.
